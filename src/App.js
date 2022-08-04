@@ -47,14 +47,11 @@ const Statistics = (props) => {
     <div>
       <h1>Statistics</h1>
       <StatisticLine text="good" value ={props.good} />
-
-      <p>good {props.good}</p>
-      <p>neutral {props.neutral}</p>
-      <p>bad {props.bad}</p>
-  
-      <p>all {props.good + props.neutral + props.bad}</p>
-      <p>average {((props.good*1) + (props.neutral*0) - props.bad) / (props.good + props.neutral + props.bad)}</p>
-      <p>positive {props.good / (props.good + props.neutral + props.bad) * 100 } %</p>
+      <StatisticLine text="neutral" value ={props.neutral} />
+      <StatisticLine text="bad" value ={props.bad} />
+      <StatisticLine text="all" value ={props.good + props.neutral + props.bad} />
+      <StatisticLine text="average" value ={((props.good*1) + (props.neutral*0) - props.bad) / (props.good + props.neutral + props.bad)} />
+      <StatisticLine text="positive" value ={props.good / (props.good + props.neutral + props.bad) * 100 } />
     
     </div>
   )
@@ -62,18 +59,13 @@ const Statistics = (props) => {
 }
 
 const StatisticLine = (props) => {
+  
   console.log(props)
   
   return (
     <div>
-      <p>good {props.good}</p>
-      <p>neutral {props.neutral}</p>
-      <p>bad {props.bad}</p>
-  
-      <p>all {props.good + props.neutral + props.bad}</p>
-      <p>average {((props.good*1) + (props.neutral*0) - props.bad) / (props.good + props.neutral + props.bad)}</p>
-      <p>positive {props.good / (props.good + props.neutral + props.bad) * 100 } %</p>
-   
+        {props.text}
+        {props.value}
     </div>
 
   )
