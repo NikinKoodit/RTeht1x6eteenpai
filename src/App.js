@@ -1,4 +1,4 @@
-// tehtävä 1.8
+// tehtävä 1.9
 
 import { useState } from 'react'
 
@@ -7,6 +7,8 @@ const App = () => {
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
+  
+ 
   return (
     <div>
       <h1>give feedBack</h1>
@@ -22,16 +24,25 @@ const App = () => {
       <button onClick={() => setBad(bad + 1)}>
         bad
       </button>
-      
       <Statistics good= {good} neutral= {neutral} bad= {bad}/>
-        
+      
     </div>
   )
 }
 
-const Statistics = (props) => {
 
+const Statistics = (props) => {
+  if (props.good + props.neutral + props.bad === 0) {
+    return(
+      <div>
+        <h1>statistics</h1>
+        <p> No feedBack given </p>
+      </div>
+    )
+  }
+  
   return(
+
     <div>
     <h1>statistics</h1>
     <p>good {props.good}</p>
